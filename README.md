@@ -159,6 +159,8 @@ python manage.py runserver
 
 BOOM! There we go, lets click here and make sure our server is running: [**http://127.0.0.1:8000/**](http://127.0.0.1:8000/).
 
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/isyca9y3n8h1odyf1emr.png)
+
 If everything is working so far, let's kill the server for now:
 
 - If you're using **windows** it's _Ctrl_+_F4_.
@@ -331,7 +333,12 @@ python manage.py runserver
 
 # Using the endpoints
 
-- To get your events simply use this endpoint [http://127.0.0.1:8000/events_list/](http://127.0.0.1:8000/events_list)
 - To post an event, use your frontend or postman and simply post to this endpoint [http://127.0.0.1:8000/post_event](http://127.0.0.1:8000/post_event/)
 
-Now we're done! Quick and painless
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5tu6334hddllykbwlzjo.png)
+
+- To get your events simply use this endpoint [http://127.0.0.1:8000/events_list/](http://127.0.0.1:8000/events_list)
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6l8jodyaq8878yfgw3u.png)
+
+Now we're done! Quick and painless.
