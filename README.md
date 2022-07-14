@@ -1,30 +1,36 @@
 # Django Rest Framework Tutorial
 
-A quick tutorial on how to make a Restful Api with Django RestFramework in 10 minutes!
+This is a quick tutorial on how to make a Restful Api with **`Python`** and **`Django RestFramework`** in **10 minutes!**
 
 ## Prerequisite
 
-Django is a python framework so ensure that you have a version of python 3 and pip installed. Check this by running:
+**`Django`** is a python framework, so before you continue make sure you have a version of **`Python 3`** and **`pip`** installed.
+
+To check running the following command in your terminal:
 
 ```bash
 python3 --version
 pip --version
 ```
 
-If you don't have python download it by clicking [here](https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg). Then re-run the commands above to ensure you have both python and pip installed.
+If you don't have **`python`** download it by clicking [**here**](https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg). Then re-run the commands above to ensure you have both **`python`** and **`python`** installed.
 
 ## Setting up the project
 
-I highly recommend that you use [Pycharm](https://www.jetbrains.com/pycharm/) as your text editor for this tutorial. **PyCharm** provides a ton of benefits for building python projects but you could also follow this tutorial manually using your terminal and a text editor of your choice.
+I highly recommend using [**`Pycharm`**](https://www.jetbrains.com/pycharm/download/) as your text editor for this tutorial. **`PyCharm`** provides a ton of benefits for building python projects.
+
+If you choose to use **`PyCharm`**, follow **`option 1`**.
+
+To set up your project manually, follow **`option 2`**.
 
 ### OPTION #1 - Pycharm
 
 Create a new project with the following settings:
 
-- **Location** - choose the directory in which you want your project to sit and name the directory.
-- **Python Interpreter** - select virtualenv, leave the location to the default, ensure the base interpreter is at least a version of python 3 (i.e: Python 3.7 or 3.8)
+- **Location** - navigate to the directory where you want your project to sit and name the directory.
+- **Python Interpreter** - select virtualenv, leave the location to the default, ensure the base interpreter is at least a version of python 3 _(i.e: Python 3.7 or 3.8)_
 
-Finally open the pyCharm terminal screen located at the bottom navigation. *It will be located next to Problems, Version Control and Python*Packages.
+Finally open the **`PyCharm`** terminal screen located at the bottom navigation (_located next to Problems, Version Control and PythonPackages_).
 
 **Now you are ready to go!**
 
@@ -32,7 +38,7 @@ Finally open the pyCharm terminal screen located at the bottom navigation. *It w
 
 _If you choose not to install PyCharm_, **that's fine too!**
 
-First let's navigate to the directory you wish to create the project in using your terminal and make the directory. We'll call this project **django_tutorial**.
+Firstly, navigate to the directory you want your project to sit via your terminal and run the following command:
 
 Let's run the following command:
 
@@ -41,7 +47,9 @@ mkdir django_tutorial
 cd django_tutorial
 ```
 
-As with most python projects we'll need a virtual environment, so let's create one now:
+As with most python projects, we'll need a virtual environment.
+
+So let's create one now by running this command:
 
 ```bash
 python3 -m venv venv
@@ -53,9 +61,13 @@ Now lets activate our virtual enviroment:
 source venv/bin/activate
 ```
 
-What we've done is create the virtual environment for the project and activated it. If you're not using **PyCharm**, you will need to remember to activate the venv each time via terminal to run your project.
+### What did we just do?
 
-Finally, open up your project in the text editor of your choosing!
+We've created the virtual environment for the project and activated it.
+
+If you're not using **PyCharm**, you will need to remember to activate the **`venv`** each time by using **`source venv/bin/activate`**
+
+Now open your project in the text editor of your choosing!
 
 **Now you're ready to go!**
 
@@ -69,23 +81,46 @@ pip install django djangorestframework django-cors-headers
 
 Now, let's quickly saves all our packages with the following command:
 
-```
+```bash
 pip freeze > requirements.txt
 ```
 
-Now we've installed our django packages, let's run the following command in our terminal to create our django project. We'll call this project **django_rest_api**.
+We've now installed our **`django`** packages.
+
+Next we'll be createing our django project and calling it **`django_rest_api`**.
+
+Let's run the following command in our terminal:
 
 ```bash
 django-admin startproject django_rest_api .
 ```
 
-This command should have created a directory with the files: **url.py**, **settings.py**, **asgi.py** and **wsgi.py**. You should also have a **manage.py** file in your root directory.
+This command should have created a directory named **`django_rest_api`** with the files:
 
-Now we've created our django project, we can start creating our apps. For this tutorial we'll be creating a simple **events** app. So let us run this command:
+- **`__init__.py`**
+- **`asgi.py`**
+- **`settings.py`**
+- **`url.py`**
+- **`wsgi.py`**
+
+You should also have a **`manage.py`** file in your root directory.
+
+Now we've created our django project, we can start creating our apps.
+
+For this tutorial we'll be creating a simple **events** app. So let us run this command:
 
 ```bash
 python manage.py startapp events
 ```
+
+This command should have created a directory named **`events`** with the files:
+
+- **`__init__.py`**
+- **`admin.py`**
+- **`apps.py`**
+- **`models.py`**
+- **`tests.py`**
+- **`views.py`**
 
 Now your folder structure should look like this:
 
@@ -98,9 +133,11 @@ Now your folder structure should look like this:
 
 Now our project is beginning to take shape!
 
-Next we need to configure our settings file, go to your **django_rest_api** directory and open up your **settings.py** file.
+Next we need to configure our settings file, go to your **`django_rest_api`** directory and open up your **`settings.py`** file.
 
-We'll need to add the apps we've installed earlier (through pip) to our **INSTALLED_APPS**. Scroll down to roughly **line 31** of the settings.py file and add **'corsheaders'**, **'rest_framework'** and **'events'** to the bottom of your **INSTALLED_APPS** array.
+We'll need to add the apps we've installed earlier (through pip) to our **INSTALLED_APPS**.
+
+Scroll down to roughly **`line 31`** of the **`settings.py`** file and add **`'corsheaders'`**, **`'rest_framework'`** and **`'events'`** to the bottom of your **`INSTALLED_APPS`** array.
 
 ```python
 INSTALLED_APPS = [
@@ -117,7 +154,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-Now add the **'corsheaders.middleware.CorsMiddleware'** to enable your cors headers on roughly **line 47** of your **MIDDLEWARE** array in the **settings.py** file.
+Now add the **`'corsheaders.middleware.CorsMiddleware'`** to enable your cors headers on roughly **`line 49`** of your **`MIDDLEWARE`** array in the **`settings.py`** file.
 
 ```python
 MIDDLEWARE = [
@@ -132,9 +169,9 @@ MIDDLEWARE = [
 ]
 ```
 
-Finally, add the cors settings to the bottom of the **settings.py** file.
+Finally, add the cors settings to the bottom of the **`settings.py`** file.
 
-For this tutorial I will be adding local port **3000**, but depending on which port your frontend client is running on, you can edit the **CORS_ORIGIN_WHITELIST**.
+For this tutorial I will be adding local port **3000**, but depending on which port your front end client is running on, you can edit the **`CORS_ORIGIN_WHITELIST`**.
 
 ```python
 CORS_ORIGIN_ALLOW_ALL = True
@@ -159,7 +196,7 @@ python manage.py runserver
 
 BOOM! There we go, lets click here and make sure our server is running: [**http://127.0.0.1:8000/**](http://127.0.0.1:8000/).
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/isyca9y3n8h1odyf1emr.png)
+![Example](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/isyca9y3n8h1odyf1emr.png)
 
 If everything is working so far, let's kill the server for now:
 
@@ -170,14 +207,14 @@ If everything is working so far, let's kill the server for now:
 
 Models are the schemas we use for our data in django restframework.
 
-Inside your **events** directory, open up your **models.py** file. Here we'll create our first model with the following fields:
+Inside your **`events`** directory, open up your **`models.py`** file. Here we'll create our first model with the following fields:
 
-- **Title** - this will be a character field which allows text and requires a max length.
-- **Venue** - similar to our title field, but let's increase our max length from 250 to 350.
-- **Description** - this will be a text field that accept a string value without needing to declare a limit.
-- **Date** - this is a date field which takes a date.
-- **Adults only** - this will be a boolean field, let's add a default value and set it to false.
-- **Number of attendees** - this will be an integer field, that will accept values between -2147483648 and 2147483647.
+- **`title`** - this will be a character field which allows text and requires a max length.
+- **`venue`** - similar to our title field, but let's increase our max length from 250 to 350.
+- **`description`** - this will be a text field that accept a string value without needing to declare a limit.
+- **`date`** - this is a date field which takes a date.
+- **`adults_only`** - this will be a boolean field, let's add a default value and set it to false.
+- **`number_of_attendees`** - this will be an integer field, that will accept values between -2147483648 and 2147483647.
 
 ```python
 from django.db import models
@@ -192,9 +229,11 @@ class Event(models.Model):
     number_of_attendees = models.IntegerField("Number_Of_Attendees")
 ```
 
-Before creating models, make sure you know exactly what fields you want to use. Doing some research into the [different fields](https://www.geeksforgeeks.org/django-model-data-types-and-fields-list/) and what they will prevent issues further down the line.
+Before creating models, make sure you know exactly what fields you want to use.
 
-Now we've written up our model, let's migrate it with the following command.
+Doing some research into the [different fields](https://www.geeksforgeeks.org/django-model-data-types-and-fields-list/) and what they will prevent issues further down the line.
+
+Now we've written up our model, let's migrate it with the following commands:
 
 ```python
 python manage.py makemigrations
@@ -205,13 +244,15 @@ python manage.py migrate
 
 Serializing is process of converting objects into JSON.
 
-In your **events** directory let's create a file and call it **serializers.py**.
+In your **`events`** directory, let's create a file and call it **serializers.py** by running the following command in our terminal:
 
 ```bash
 touch events/serializers.py
 ```
 
-Firstly, let's import our Event model from our **models.py** file. We'll then need our ModelSerializers from django rest framework to serialize our model. When serializing a model, we must declare the model and the fields we want serialized.
+Firstly, let's import our Event model from our **`models.py`** file. We'll then need our **`ModelSerializers`** from **`django rest framework`** to serialize our model.
+
+When serializing a model, we must declare the model and the fields we want serialized.
 
 To serialize all the fields, use the following:
 
@@ -244,25 +285,25 @@ class EventsSerializer(ModelSerializer):
         ]
 ```
 
-Here we've excluded our **adults_only** field from the **Event** model.
+Here we've excluded our **`adults_only`** field from the **`Event`** model.
 
-Remember to add a default value or **null=True** or **default_value=True/False** to any field you include in your model but exclude from your serializer. As we've added a **default_value=False** to our **adults_only** field, this will not throw any errors when we make a post request.
+Remember to add a default value or **`null=True`** or **`default_value=True or (False)`** to any field you include in your model but exclude from your serializer. As we've added a **`default_value=False`** to our **`adults_only`** field, this will not throw any errors when we make a post request.
 
 Now we have our model and our serializer, let's start creating our the views and routes!
 
 ## Creating our views and routes
 
-Views are what our url endpoints return. In this case we want it to return the serialized data from our models. To do this we'll need to import the **api_view**, status and **Response** from django restframework.
+**`Views`** are what our url endpoints return. In this case we want it to return the serialized data from our **`models`**. To do this we'll need to import the **`api_view`**, **`status`** and **`Response`** from **`django restframework`**.
 
-This is also need to import our **Event** model and **EventsSerializer** that we made earlier.
+This is also need to import our **`Event`** model and **`EventsSerializer`** that we made earlier.
 
 The **EventSerializer** will multiple arguments:
 
-1. The Event objects we wish to pass through, in this case we'll be returning all the event objects with **_Event.objects.all()_**
-2. It will also take the request type (for this tutorial it will be **_POST_** and **_GET_**.
+1. The Event objects we wish to pass through, in this case we'll be returning all the event objects with **`_Event.objects.all()_`**
+2. It will also take the request type (for this tutorial it will be **`_POST_`** and **`_GET_`**.
 3. We'll also pass **many=True** as an argument. This argument determines whether or not the request will return one or multiple objects, so in this case we want all objects so we will set it to true.
 
-So this is our **_GET_** request:
+So this is our **`_GET_`** request:
 
 ```python
 from rest_framework.decorators import api_view
@@ -283,14 +324,14 @@ def events_list(request):
 
 ```
 
-Now we've got our **_GET_** request, let make our **_POST_** request.
+Now we've got our **`_GET_`** request, let make our **`_POST_`** request.
 
-The data will use the same serializer as our **_GET_** request. If you want to pass an object through your post request,
+The data will use the same serializer as our **`_GET_`** request. If you want to pass an object through your post request,
 
 It will take the request data from multiple objects and will check if it's valid:
 
-- If the data is valid it will be saved and return a **HTTP_201_CREATED**.
-- If it will return a **400_BAD_REQUEST** error.
+- If the data is valid it will be saved and return a **`HTTP_201_CREATED`**.
+- If it will return a **`400_BAD_REQUEST`** error.
 
 ```python
 @api_view(['POST'])
@@ -305,9 +346,11 @@ def post_event(request):
 
 We're almost done!
 
+## Adding urls
+
 The final step is to create the url endpoints by adding the views we just made to our router.
 
-Lets go to our **django_rest_api** directory and open up the **urls.py** file.
+Lets go to our **`django_rest_api`** directory and open up the **`urls.py`** file.
 
 We can replace the code in that file with the following:
 
@@ -323,22 +366,20 @@ urlpatterns = [
 ]
 ```
 
-And that's it! We're all done!
+## Using the endpoints
 
-Lets run our server with:
+Now let's test out our endpoints, let's start our server by running this command in our terminal:
 
 ```bash
 python manage.py runserver
 ```
 
-# Using the endpoints
+- To post an event, use your frontend or postman and simply post to this endpoint [**`http://127.0.0.1:8000/post_event`**](http://127.0.0.1:8000/post_event/)
 
-- To post an event, use your frontend or postman and simply post to this endpoint [http://127.0.0.1:8000/post_event](http://127.0.0.1:8000/post_event/)
+![Post request](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5tu6334hddllykbwlzjo.png)
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5tu6334hddllykbwlzjo.png)
+- To get your events simply use this endpoint [**`http://127.0.0.1:8000/events_list/`**](http://127.0.0.1:8000/events_list)
 
-- To get your events simply use this endpoint [http://127.0.0.1:8000/events_list/](http://127.0.0.1:8000/events_list)
-
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6l8jodyaq8878yfgw3u.png)
+![GET request](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6l8jodyaq8878yfgw3u.png)
 
 Now we're done! Quick and painless.
